@@ -8,6 +8,7 @@
   },
   "dependencies": {
 	  "javascript-brunch": ">= 1.0 < 1.6",
+      "jshint-brunch": ">= 1.0 < 1.6",
 
 	  "css-brunch": ">= 1.0 < 1.6",
 	  "stylus-brunch": ">= 1.0 < 1.6",
