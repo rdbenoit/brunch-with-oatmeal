@@ -1,5 +1,3 @@
-"use strict"
-
 require.define({
     "jquery":function(require, exports, module){
         return module.exports = $;

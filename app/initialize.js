@@ -1,5 +1,3 @@
-"use strict"
-
 var Application = require("application"),
     $ = require("jquery");
 
