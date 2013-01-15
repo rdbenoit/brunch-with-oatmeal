@@ -6,27 +6,27 @@ var http = require("http"),
     path = require("path"),
     _ = require("underscore");
 
-var publicDir = config.publicDir || path.resolve(".");
-
-exports.startServer = function(port, path){
+exports.startServer = function (port, publicPath, callback) {
 
     var proxy = new httpProxy.RoutingProxy();
 
     var app = connect()
         .use(connect.favicon())
         .use(function (req, res, next) {
-            if(_(config.proxy.intercept).any(function(intercept){
+
+            if (_(config.proxy.intercept).any(function (intercept) {
                 return req.url.indexOf(intercept) === 0;
             })) {
                 return proxy.proxyRequest(req, res, config.proxy);
             }
 
-            if(req.url.indexOf(path) === 0)
-                return next();
+            if (req.url.indexOf(config.baseUrl) === 0)
+                req.url = req.url.replace(config.baseUrl, "");
 
-            return res.send('No found', 404);
+            return next();
         })
-        .use(connect.static(publicDir));
+        .use(connect.static(path.resolve(publicPath)));
 
-    http.createServer(app).listen(config.port);
+    var server = http.createServer(app);
+    server.listen(port, callback);
 };

@@ -32,5 +32,11 @@ exports.config = {
         templates: {
             joinTo: "javascripts/app.js"
         }
+    },
+    server : {
+        path:"server.js",
+        port:8080,
+        base:"/labs",
+        run:true
     }
 };

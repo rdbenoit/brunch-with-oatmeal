@@ -3,5 +3,6 @@
 		"intercept" : ["/services","/valytics"],
 		"host" : "localhost",
 		"port" : "80"
-	}
+	},
+	"baseUrl":"/labs"
 }
