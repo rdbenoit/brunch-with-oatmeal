@@ -1,7 +1,7 @@
 module.exports = {
     create: function (options) {
         var Backbone = require("backbone");
-        var Modules = require("modules");
+        var Views = require("views");
         var mediator = require("mediator");
 
         var Klass = Backbone.Router.extend({
@@ -9,7 +9,7 @@ module.exports = {
                 "":"showDefault"
             },
             showDefault: function(){
-                mediator.trigger("change:page", Modules.Views.Pages.home.create());
+                mediator.trigger("change:page", Views.Pages.home.create());
             }
         });
 

@@ -1,7 +1,9 @@
 exports.create = function (container) {
     var _ = require("underscore"),
         Backbone = require('backbone'),
-        Modules = require('modules');
+        Views = require('views'),
+        Routers = require('routers'),
+        Templates = require('templates');
 
     Backbone.Layout.configure({
         manage:true,
@@ -23,9 +25,9 @@ exports.create = function (container) {
     };
 
     Application.prototype.initLayout = function () {
-        var layout = Modules.Views.Layouts.main.create({
+        var layout = Views.Layouts.main.create({
             name: "main",
-            template: Modules.Templates.Layouts.main
+            template: Templates.Layouts.main
         });
         container.html(layout.el);
         layout.render();
@@ -34,7 +36,7 @@ exports.create = function (container) {
     };
 
     Application.prototype.initRouter = function(layout){
-        Modules.Routers.app.create({
+        Routers.app.create({
             layout: layout
         });
     };

@@ -1,10 +1,10 @@
 module.exports = {
     create: function (options) {
         var Backbone = require("backbone");
-        var Modules = require("modules");
+        var Templates = require("templates");
 
         var Klass = Backbone.View.extend({
-            template: Modules.Templates.Pages.home
+            template: Templates.Pages.home
         });
 
         return new Klass(options);
