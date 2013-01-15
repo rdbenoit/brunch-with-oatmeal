@@ -1,8 +1,8 @@
 {
 	"proxy" : {
-		"intercept" : ["/services","/valytics"],
+		"intercept" : [],
 		"host" : "localhost",
 		"port" : "80"
 	},
-	"baseUrl":"/labs"
+	"baseUrl":""
 }
