@@ -1,21 +1,20 @@
 module.exports = {
-    create: function(options){
-        var Backbone = require("backbone");
-        var mediator = require("mediator");
+    create: function(){
+        var Backbone = require("backbone"),
+            Templates = require("templates"),
+            mediator = require("mediator");
 
-        var Klass = Backbone.Layout.extend({
-            template:options.template,
-            className:"layout " + options.name,
+        var Klass = Backbone.View.extend({
+            template:Templates.Layouts.main,
             initialize: function(){
-                mediator.on("change:page", onChangePage, this);
+                mediator.on("change:content", onChangeContent, this);
             }
         });
 
         return new Klass();
 
-        function onChangePage(page){
-//            console.log("should change the content to ", page);
-            this.setView(".content", page).render();
+        function onChangeContent(view){
+            this.setView(".content", view).render();
         }
     }
 };

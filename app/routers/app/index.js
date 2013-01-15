@@ -9,7 +9,7 @@ module.exports = {
                 "":"showDefault"
             },
             showDefault: function(){
-                mediator.trigger("change:page", Views.Pages.home.create());
+                mediator.trigger("change:content", Views.Pages.home.create());
             }
         });
 

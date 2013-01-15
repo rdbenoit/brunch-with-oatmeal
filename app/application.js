@@ -1,9 +1,7 @@
 exports.create = function (container) {
     var _ = require("underscore"),
         Backbone = require('backbone'),
-        Views = require('views'),
-        Routers = require('routers'),
-        Templates = require('templates');
+        Routers = require('routers');
 
     Backbone.Layout.configure({
         manage:true,
@@ -15,31 +13,23 @@ exports.create = function (container) {
         }
     });
 
-    var Application = function () {
-        var layout = this.initLayout();
-        this.initRouter(layout);
+    var Application = function (container) {
+        this.container = container;
+        this.initRouter();
     };
 
     Application.prototype.start = function () {
         Backbone.history.start();
     };
 
-    Application.prototype.initLayout = function () {
-        var layout = Views.Layouts.main.create({
-            name: "main",
-            template: Templates.Layouts.main
-        });
-        container.html(layout.el);
-        layout.render();
-
+    Application.prototype.setLayout = function (layout) {
+        this.container.html(layout.el);
         return layout;
     };
 
-    Application.prototype.initRouter = function(layout){
-        Routers.app.create({
-            layout: layout
-        });
+    Application.prototype.initRouter = function(){
+        this.router = Routers.app.create();
     };
 
-    return new Application();
+    return new Application(container);
 };
