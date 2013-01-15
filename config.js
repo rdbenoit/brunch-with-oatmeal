@@ -25,8 +25,14 @@ exports.config = {
                 'test/stylesheets/test.css': /^test/
             },
             order: {
-                before: ["vendor/styles/normalize-2.0.1.css"],
-                after: ["vendor/styles/bootstrap.css", "vendor/styles/bootstrap-responsive.css"]
+                before: [
+                    "vendor/styles/normalize-2.0.1.css",
+                    "vendor/styles/bootstrap.css",
+                    "vendor/styles/bootstrap-responsive.css",
+                    "vendor/styles/font-awesome.css"
+                ],
+                after: [
+                ]
             }
         },
         templates: {
