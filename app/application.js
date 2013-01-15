@@ -1,4 +1,4 @@
-module.exports.create = function (container) {
+exports.create = function (container) {
     var _ = require("underscore"),
         Backbone = require('backbone');
 

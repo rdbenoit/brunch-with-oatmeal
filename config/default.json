@@ -1,0 +1,7 @@
+{
+	"proxy" : {
+		"intercept" : ["/services","/valytics"],
+		"host" : "localhost",
+		"port" : "80"
+	}
+}
