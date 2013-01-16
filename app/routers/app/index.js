@@ -2,7 +2,7 @@ module.exports = {
     create: function (options) {
         var Backbone = require("backbone");
         var Views = require("views");
-        var mediator = require("mediator");
+        var mediator = require("lib/mediator");
 
         var Klass = Backbone.Router.extend({
             routes: {

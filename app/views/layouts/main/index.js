@@ -2,7 +2,7 @@ module.exports = {
     create: function(){
         var Backbone = require("backbone"),
             Templates = require("templates"),
-            mediator = require("mediator");
+            mediator = require("lib/mediator");
 
         var Klass = Backbone.View.extend({
             template:Templates.Layouts.main,
