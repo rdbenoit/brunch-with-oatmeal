@@ -1,8 +1,9 @@
 {
 	"proxy" : {
-		"intercept" : [],
-		"host" : "localhost",
-		"port" : "80"
+		"/to-proxy":{
+			"host":"localhost",
+			"port":80
+		}
 	},
 	"baseUrl":""
 }

@@ -14,11 +14,12 @@ exports.startServer = function (port, publicPath, callback) {
         .use(connect.favicon())
         .use(function (req, res, next) {
 
-            if (_(config.proxy.intercept).any(function (intercept) {
+            var proxied = _(config.proxy).find(function(value, intercept){
                 return req.url.indexOf(intercept) === 0;
-            })) {
-                return proxy.proxyRequest(req, res, config.proxy);
-            }
+            });
+
+            if(proxied)
+                return proxy.proxyRequest(req, res, proxied);
 
             if (req.url.indexOf(config.baseUrl) === 0)
                 req.url = req.url.replace(config.baseUrl, "");
